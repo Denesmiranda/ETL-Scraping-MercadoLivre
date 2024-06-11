@@ -7,7 +7,7 @@
 O projeto consiste em um conjunto de scripts em Python para coletar, limpar, processar e visualizar dados relacionados aos tênis de corrida masculinos disponíveis no Mercado Livre, utilizando-se de técnicas de Web Scraping para extrair informações detalhadas dos produtos, como marca, nome, preços antigos e novos, notas e quantidades de avaliações. Posteriormente, organiza e apresenta esses dados de forma estruturada e interativa.
 
 ### Processo
-**Etapa 1**
+**Etapa 1**<br>
 mercadolivre.py: implementa um **Web Crawler** utilizando a biblioteca Scrapy em Python. É responsável por fazer **Web Scraping** nas páginas de resultados de pesquisa do Mercado Livre. Extrai informações específicas de cada produto. Os dados coletados são então estruturados em um formato de dicionário (Json) e enviados para o pipeline do Scrapy para posterior processamento ou armazenamento.
 
 **_Comando para rodar o crawl_**
@@ -15,7 +15,7 @@ mercadolivre.py: implementa um **Web Crawler** utilizando a biblioteca Scrapy em
 ```bash
 scrapy crawl mercadolivre -o ../data/data.jsonl
 ```
-**Etapa 2**
+**Etapa 2**<br>
 main.py: Os dados coletados previamente são carregados de um arquivo JSON. Com o Pandas, é realizado um trabalho de transformação, como a origem das informações, data/hora da coleta dos dados, conversão de tipos, tratamento de valores nulos e formatação de valores. Em seguida, os dados transformados são armazenados de forma estruturada em um banco de dados SQLite e em um arquivo CSV.
 
 **_Comando para rodar o Pandas_**
@@ -23,11 +23,11 @@ main.py: Os dados coletados previamente são carregados de um arquivo JSON. Com 
 ```bash
 python transformacao/main.py
 ```
-**Etapa 3**
+**Etapa 3**<br>
 app.py: conecta com um banco de dados SQLite e carregando os dados da tabela em um DataFrame do Pandas. Em seguida, apresenta esses dados de forma interativa em uma aplicação Streamlit. 
 
-<pasta src>
 **_Comando para rodar a apresentação das análises_**
+<pasta src>
 ```bash
 streamlit run dashboard/app.py 
 ```
